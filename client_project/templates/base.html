@@ -1,0 +1,27 @@
+{% load static %}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Client App{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="module" src="{% static 'js/app.js' %}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {% block extra_head %}{% endblock %}
+    {% tailwind_css %}
+</head>
+
+<body class="h-full flex flex-col ">
+    <main class="flex-grow h-full">
+        {% block content %}
+        {# Default content if child template doesn't override #}
+        {% endblock %}
+    </main>
+
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

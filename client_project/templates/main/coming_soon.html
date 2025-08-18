@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Coming Soon{% endblock %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center h-full" x-data="comingSoon">
+    <h1 class="text-4xl font-bold text-gray-800">Coming Soon</h1>
+    <button @click="logout" :disabled="isLoading"
+        class="mt-4 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50">
+        <span x-show="!isLoading">Logout</span>
+        <span x-show="isLoading">Logging out...</span>
+    </button>
+</div>
+{% endblock %}

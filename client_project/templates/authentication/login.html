@@ -1,0 +1,48 @@
+<!-- Html -->
+{% extends 'authentication/auth-base.html' %}
+
+<!-- Title -->
+{% block title %}Login - My App{% endblock %}
+
+<!-- Content -->
+{% block auth_content %}
+<div x-data="loginForm">
+    <h1 class="text-3xl font-bold text-center text-gray-900">Login</h1>
+    <form @submit.prevent="login" class="space-y-4">
+        <template x-if="errors.form">
+            <div x-text="errors.form" class="p-3 text-sm text-red-700 bg-red-100 border border-red-400 rounded-md">
+            </div>
+        </template>
+
+        <div>
+            <label for="login-email" class="block text-sm font-medium text-gray-700">Email:</label>
+            <input type="email" id="login-email" name="login-email" required x-model="email"
+                :class="{'border-red-500 focus:border-red-500 focus:ring-red-500': errors.email, 'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500': !errors.email}"
+                class="w-full px-3 py-2 mt-1 border rounded-md shadow-sm">
+            <template x-if="errors.email">
+                <div x-text="errors.email" class="mt-1 text-xs text-red-600"></div>
+            </template>
+        </div>
+        <div>
+            <label for="login-password" class="block text-sm font-medium text-gray-700">Password:</label>
+            <input type="password" id="login-password" name="login-password" required x-model="password"
+                :class="{'border-red-500 focus:border-red-500 focus:ring-red-500': errors.password, 'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500': !errors.password}"
+                class="w-full px-3 py-2 mt-1 border rounded-md shadow-sm">
+            <template x-if="errors.password">
+                <div x-text="errors.password" class="mt-1 text-xs text-red-600"></div>
+            </template>
+        </div>
+        <div>
+            <button type="submit" :disabled="isLoading"
+                class="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50">
+                <span x-show="!isLoading">Login</span>
+                <span x-show="isLoading">Loading...</span>
+            </button>
+        </div>
+    </form>
+    <div class="text-sm mt-5">
+        <a href="{% url 'password_reset_request' %}" class="font-medium text-indigo-600 hover:text-indigo-500">Forgot
+            Password?</a>
+    </div>
+</div>
+{% endblock %}

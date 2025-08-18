@@ -1,0 +1,24 @@
+<!-- html -->
+{% extends 'base.html' %}
+
+<!-- content -->
+{% block content %}
+<header class="text-center font-bold p-6 mb-16">
+    <h1 class="text-6xl m-8 mb-16">Welcome!</h1>
+    <nav>
+        <ul class="flex justify-center items-center gap-4">
+            <li><a href="/auth/register/"
+                    class="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Register</a>
+            </li>
+            <li><a href="/auth/login/"
+                    class="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ">Login</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="flex flex-col items-center justify-center ">
+    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+        {% block auth_content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+# Core Django Framework
+django
+djangorestframework
+django-tailwind
+
+# Production Deployment
+gunicorn
+whitenoise
+python-decouple
+psycopg2-binary
+boto3
+
+# For AWS DB Creation Script
+requests
+
+# For Testing
+coverage
