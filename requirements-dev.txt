@@ -1,3 +1,19 @@
 boto3
 paramiko
 python-decouple
+
+# Core Django Framework
+django
+djangorestframework
+django-tailwind
+
+# Production Deployment
+gunicorn
+whitenoise
+psycopg2-binary
+
+# For AWS DB Creation Script
+requests
+
+# For Testing
+coverage
